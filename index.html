@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,23 +12,81 @@
         <h1 class="text-3xl font-bold">MMS Solutions</h1>
         <p>Invoice App</p>
       </header>
-      <div class="max-w-[550px] mx-auto">
-        <form action="">
+      <div class="bg-gray-200 w-96 h-screen fixed top-0 right-0 p-2">
+        <div class="flex justify-between items-center mb-2">
+          <h1 class="text-3xl font-bold">Management</h1>
+          <button class="border border-gray-800 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+            
+          </button>
+        </div>
+        <div id="serviceList" class="flex flex-col ">
+          <div class="w-full mb-5 flex items-center justify-between border border-gray-700 p-2">
+            <h1>Domain</h1>
+            <p>$ 800</p>
+          </div>
+        </div>
+        
+        <form action="" id="addService">
           <div class="grid grid-cols-3 gap-3">
-            <select class="border border-neutral-600 p-3 " name="" id="">
-              <option value="">Domain</option>
-            </select>
-            <input class="border border-neutral-600 p-3" type="number">
-            <button class="border border-neutral-600 p-3 bg-neutral-600 text-white">
-              Add Record
+            <input name="new-name" type="text" class="col-span-3 border border-neutral-600 p-3">
+            <input name="new-price" type="text" class="col-span-2 border border-neutral-600 p-3">
+            <button type="submit" class="border border-neutral-600 p-3">
+              Add New
             </button>
           </div>
         </form>
       </div>
-      <table>
-        
-      </table>
+      <div class="max-w-[550px] mx-auto">
+        <form id="addRecord" class="mb-5" action="">
+          <div class="grid grid-cols-3 gap-3">
+            <select
+              id="productSelect"
+              class="border border-neutral-600 p-3"
+              name="product_id"
+            >
+              <option value="">Select Product</option>
+            </select>
+            <input
+              class="border border-neutral-600 p-3"
+              name="quantity"
+              type="number"
+            />
+            <button
+              class="border border-neutral-600 p-3 bg-neutral-600 text-white"
+            >
+              Add Record
+            </button>
+          </div>
+        </form>
+        <table class="w-full">
+          <thead class="bg-neutral-600 text-white">
+            <tr>
+              <td class="p-3">#</td>
+              <td class="p-3">Product</td>
+              <td class="p-3 text-end">Price</td>
+              <td class="p-3 text-end">Quality</td>
+              <td class="p-3 text-end">Cost</td>
+            </tr>
+          </thead>
+          <tbody id="recordList">
+            
+          </tbody>
+          <tfoot>
+            <tr class="bg-neutral-300">
+              <td colspan="4" class="text-center p-3">Total</td>
+              <td class="text-end p-3 cost-total"></td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="mt-5 flex justify-end items-center gap-x-3">
+          <button class="border border-neutral-600 p-3 hover:bg-neutral-600 hover:text-white">manage service</button>
+          <button class="border border-neutral-600 p-3 bg-neutral-600 text-white">print</button>
+        </div>
+      </div>
     </div>
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/invoice.js"></script>
   </body>
 </html>
