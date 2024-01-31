@@ -29,7 +29,9 @@ const recordList = app.querySelector("#recordList");
 const costTotal = app.querySelector(".cost-total");
 const serviceList = app.querySelector("#serviceList");
 const addService = app.querySelector("#addService");
-
+const manageServiceBtn = app.querySelector("#manageServiceBtn");
+const closeBtn = app.querySelector("#closeBtn");
+const managementBox = app.querySelector("#managementBox");
 
 // products.forEach(({name,price})=> {
 // })
@@ -145,6 +147,10 @@ const addRecordHandler = (event) => {
   recordTotal();
 };
 
+const manageServiceHandler = () => {
+  managementBox.classList.toggle("translate-x-full");
+}
+
 const addServiceHandler = (event) => {
   event.preventDefault();
 
@@ -157,8 +163,11 @@ const addServiceHandler = (event) => {
   }
 
   products.push(newService);
+  productSelect.append(new Option(formData.get("new-name"),currentId));
+  serviceList.append(createService(currentId,formData.get("new-name"),formData.get("new-price")))
 
-  
+  addService.reset()
+
   
 
 }
@@ -178,4 +187,6 @@ recordList.addEventListener("click",(event) => {
   }
 })
 
-serviceList.addEventListener("click",addServiceHandler)
+addService.addEventListener("submit",addServiceHandler);
+manageServiceBtn.addEventListener("click",manageServiceHandler);
+closeBtn.addEventListener("click",manageServiceHandler)
