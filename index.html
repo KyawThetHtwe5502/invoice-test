@@ -12,7 +12,7 @@
         <h1 class="text-3xl font-bold">MMS Solutions</h1>
         <p>Invoice App</p>
       </header>
-      <div id="managementBox" class="bg-gray-200 w-96 h-screen fixed top-0 right-0 translate-x-full duration-200 p-2">
+      <div id="managementBox" class="bg-gray-200 print:hidden w-96 h-screen fixed top-0 right-0 translate-x-full duration-200 p-2">
         <div class="flex justify-between items-center mb-2">
           <h1 class="text-3xl font-bold">Management</h1>
           <button id="closeBtn" class="border border-gray-800 active:scale-110 p-2">
@@ -37,7 +37,7 @@
         </form>
       </div>
       <div class="max-w-[550px] mx-auto">
-        <form id="addRecord" class="mb-5" action="">
+        <form id="addRecord" class="mb-5 print:hidden" action="">
           <div class="grid grid-cols-3 gap-3">
             <select
               id="productSelect"
@@ -78,9 +78,9 @@
             </tr>
           </tfoot>
         </table>
-        <div class="mt-5 flex justify-end items-center gap-x-3">
+        <div class="mt-5 flex print:hidden justify-end items-center gap-x-3">
           <button id="manageServiceBtn" class="border border-neutral-600 p-3 hover:bg-neutral-600 hover:text-white">manage service</button>
-          <button id="printBtn" class="border border-neutral-600 p-3 bg-neutral-600 text-white">print</button>
+          <button id="printBtn"  class="border border-neutral-600 p-3 active:scale-110 bg-neutral-600 text-white">print</button>
         </div>
       </div>
     </div>

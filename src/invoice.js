@@ -32,6 +32,7 @@ const addService = app.querySelector("#addService");
 const manageServiceBtn = app.querySelector("#manageServiceBtn");
 const closeBtn = app.querySelector("#closeBtn");
 const managementBox = app.querySelector("#managementBox");
+const printBtn = app.querySelector("#printBtn");
 
 // products.forEach(({name,price})=> {
 // })
@@ -170,7 +171,26 @@ const addServiceHandler = (event) => {
 
   
 
-}
+};
+
+const printHandler =() => {
+  const rows = app.querySelectorAll(".record-row");
+  const recordData = [...rows].map(row => {
+    return {
+      serverId : row.getAttribute("product-id"),
+      price : parseInt(row.querySelector(".record-row-price").innerText),
+      cost: parseInt(row.querySelector(".record-list-cost").innerText)
+    }
+  });
+  
+  console.log(recordData);
+
+  window.print()
+  rows.forEach(row => row.remove());
+  app.querySelector(".cost-total").innerText = 0;
+};
+
+
 addRecord.addEventListener("submit", addRecordHandler);
 recordList.addEventListener("click", (event) => {
   if (event.target.classList.contains("del")) {
@@ -189,4 +209,5 @@ recordList.addEventListener("click",(event) => {
 
 addService.addEventListener("submit",addServiceHandler);
 manageServiceBtn.addEventListener("click",manageServiceHandler);
-closeBtn.addEventListener("click",manageServiceHandler)
+closeBtn.addEventListener("click",manageServiceHandler);
+printBtn.addEventListener("click",printHandler);
